@@ -1,0 +1,4 @@
+.env
+autolock.log
+__pycache__/
+*.pyc
