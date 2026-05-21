@@ -15,7 +15,7 @@ cd glkvm_windows_autolock
 make install        # pip install + パスワードプロンプト + cron 登録
 ```
 
-`make install` 実行時に GLKVM (PiKVM) の root パスワードを入力します (エコー無し、`.env` に mode 0600 で保存)。
+`make install` 実行時に GLKVM (PiKVM) の admin パスワードを入力します (エコー無し、`.env` に mode 0600 で保存)。
 
 ## 動作確認
 
@@ -35,5 +35,5 @@ make uninstall      # cron エントリと .env を削除
 
 ## 仕組み
 
-- `lock_windows.py` … `.env` から `GLKVM_PASSWORD` を読み、`pikvm_lib.PiKVM(hostname="localhost", username="root", password=...).hotkey("win", "l")` を呼ぶ。
+- `lock_windows.py` … `.env` から `GLKVM_PASSWORD` を読み、`pikvm_lib.PiKVM(hostname="localhost", username="admin", password=...).hotkey("win", "l")` を呼ぶ。
 - `Makefile` … `crontab -l` を `# glkvm-autolock` タグで冪等に書き換え、`55 21 * * *` で `lock_windows.py` を実行する行を登録する。

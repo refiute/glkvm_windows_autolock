@@ -30,7 +30,7 @@ env:
 	@if [ -f "$(ENV_FILE)" ]; then \
 	  echo "$(ENV_FILE) already exists; keeping current password."; \
 	else \
-	  printf 'GLKVM (PiKVM root) password: '; \
+	  printf 'GLKVM (PiKVM admin) password: '; \
 	  stty -echo; \
 	  IFS= read -r pw; \
 	  stty echo; \

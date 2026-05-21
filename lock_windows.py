@@ -40,8 +40,8 @@ def load_password(env_path: Path, key: str) -> str:
 
 def main() -> None:
     password = load_password(ENV_PATH, ENV_KEY)
-    log.info("Connecting to GLKVM at localhost as root")
-    kvm = PiKVM(hostname="localhost", username="root", password=password)
+    log.info("Connecting to GLKVM at localhost as admin")
+    kvm = PiKVM(hostname="localhost", username="admin", password=password)
     try:
         kvm.hotkey("win", "l")
     except Exception:
